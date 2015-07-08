@@ -18,6 +18,10 @@ public class CountPoints : MonoBehaviour {
 	}
 	void Update()
 	{
+		if(count < 0)
+		{
+			count = 0;
+		}
 		compteur.text = (string)count.ToString();
 	}
 }

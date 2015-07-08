@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using System.Text;
+using UnityEngine.EventSystems;
 
 public class ValideReplique : MonoBehaviour {
 
@@ -19,11 +20,13 @@ public class ValideReplique : MonoBehaviour {
 	private string repToDisplay;
 	private int pointToAdd;
 	private Color colorToPut;
+	private GameObject eventSystemText;
 
 	public void Update()
 	{
 		DisplayAnswer(repToDisplay, pointToAdd, colorToPut);
 	}
+	
 
 	public void Awake()
 	{
@@ -38,9 +41,15 @@ public class ValideReplique : MonoBehaviour {
 
 	public void ValidateRep () 
 	{
-		reponse = GameObject.Find("ReponseChamps").transform.FindChild("Text").GetComponent<Text>().text;
+		if(isPropo)
+		{
+			reponse = GameObject.Find("EventSystem").GetComponent<EventSystem>().currentSelectedGameObject.transform.FindChild("Text").GetComponent<Text>().text;
+		}
+		else
+		{
+			reponse = GameObject.Find("ReponseChamps").transform.FindChild("Text").GetComponent<Text>().text;
+		}
 		reponse = RemoveDiacriticsAndCap(reponse);
-
 		if (reponse == bonneReponse)
 		{
 			votreReponse.GetComponent<Text>().text = reponse;
