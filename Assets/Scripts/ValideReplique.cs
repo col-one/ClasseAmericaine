@@ -21,12 +21,17 @@ public class ValideReplique : MonoBehaviour {
 	private int pointToAdd;
 	private Color colorToPut;
 	private GameObject eventSystemText;
+	private GameObject buttonSuivant;
 
 	public void Update()
 	{
 		DisplayAnswer(repToDisplay, pointToAdd, colorToPut);
 	}
-	
+
+	void Start()
+	{
+		countScript.compteur = GameObject.Find("Compteur").GetComponent<Text>();
+	}
 
 	public void Awake()
 	{
@@ -36,11 +41,13 @@ public class ValideReplique : MonoBehaviour {
 		reponseText = GameObject.Find("Reponse");
 		imageSon = GameObject.Find("ImageSon");
 		votreReponse = GameObject.Find("VotreReponse");
+		buttonSuivant = GameObject.Find("Suivante");
 		panelAnswer.SetActive(false);
 	}
 
 	public void ValidateRep () 
 	{
+		buttonSuivant.GetComponent<Button>().interactable = false;
 		if(isPropo)
 		{
 			reponse = GameObject.Find("EventSystem").GetComponent<EventSystem>().currentSelectedGameObject.transform.FindChild("Text").GetComponent<Text>().text;
@@ -102,6 +109,7 @@ public class ValideReplique : MonoBehaviour {
 			reponseText.GetComponent<Text>().text = repToDiplay;
 			countScript.count += pointToAdd;
 			votreReponse.GetComponent<Text>().color = colorToPut;
+			buttonSuivant.GetComponent<Button>().interactable = true;
 			isAnswer = false;
 		}
 	}

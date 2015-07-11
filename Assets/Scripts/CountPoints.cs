@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class CountPoints : MonoBehaviour {
 
 	public int count = 0;
-	private Text compteur;
+	public Text compteur;
 
 	// Use this for initialization
 	void Awake() 
@@ -14,7 +14,6 @@ public class CountPoints : MonoBehaviour {
 	}
 	void Start()
 	{
-		compteur = GameObject.Find("Compteur").GetComponent<Text>();
 	}
 	void Update()
 	{

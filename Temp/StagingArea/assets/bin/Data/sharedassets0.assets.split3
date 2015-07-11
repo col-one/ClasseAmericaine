@@ -1,4 +1,8 @@
- xlv_TEXCOORD2));
+se {
+      col_1 = mix (col_1, (xlv_TEXCOORD1 + (_GroundColor * xlv_TEXCOORD2)), vec3((xlv_TEXCOORD0.y / 0.02)));
+    };
+  } else {
+    col_1 = (xlv_TEXCOORD1 + (_GroundColor * xlv_TEXCOORD2));
   };
   mediump vec3 tmpvar_11;
   tmpvar_11 = (col_1 * _Exposure);
