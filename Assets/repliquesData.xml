@@ -1,0 +1,20 @@
+<repliques>
+
+	<replique proposition="false">
+		<nom>truffon</nom>
+		<textReplique>JACQUES — Je sais bien que sous prétexte que je suis gentil, les gens prennent souvent pour un _____. Soit, j’en prends mon parti.</textReplique>
+		<reponse>truffon</reponse>
+		<photo>truffon</photo>
+		<son>truffon</son>
+	</replique>
+
+	<replique proposition="true">
+		<nom>touche_a_ton_cul</nom>
+		<textReplique>STEVEN — Ah, et puis je voulais te dire un truc à propos de Gorge Profonde. C’est mon indicateur ! Alors, _____.</textReplique>
+		<proposition obj="Propo1">tes infos tu peux te les coller au cul</proposition>
+		<reponse>touche a ton cul</reponse>
+		<photo>touche_a_ton_cul</photo>
+		<son>touche_a_ton_cul</son>
+	</replique>
+ 
+</repliques>

@@ -113,8 +113,6 @@ public class ValideReplique : MonoBehaviour {
 			isAnswer = false;
 		}
 	}
-
-	
 	
 	public string RemoveDiacriticsAndCap(string input)
 	{
