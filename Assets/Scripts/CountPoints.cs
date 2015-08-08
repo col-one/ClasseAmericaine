@@ -7,11 +7,23 @@ public class CountPoints : MonoBehaviour {
 	public int count = 0;
 	public Text compteur;
 
-	// Use this for initialization
-	void Awake() 
+	//property membre varaible
+	public static CountPoints instance = null;
+	
+	//Awake is always called before any Start functions
+	void Awake()
 	{
-		DontDestroyOnLoad(transform.gameObject);
+		//Check if instance already exists
+		if (instance == null)
+			instance = this;
+		
+		//If instance already exists and it's not this:
+		else if (instance != this)
+			Destroy(gameObject);    
+		
+		DontDestroyOnLoad(gameObject);
 	}
+
 	void Start()
 	{
 	}

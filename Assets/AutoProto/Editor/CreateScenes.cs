@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEditor;
 using System.Collections.Generic;
@@ -39,6 +39,8 @@ public class CreateScenes
 		//cloner une scn celon le type par repliques presentent dans le xml
 		foreach(Dictionary<string,string> replique in repliques)
 		{
+
+
 			string name = replique["nom"];
 			//AssetDatabase.CreateFolder(pathAssetRef, name);
 			if(replique["propo"] == "false")
@@ -59,7 +61,7 @@ public class CreateScenes
 				GameObject.Find("Audio Source").GetComponent<AudioSource>().clip = son;
 			
 				//save scene
-				EditorApplication.SaveScene(pathAssetRef+"/"+name+".unity");
+				//EditorApplication.SaveScene(pathAssetRef+"/"+name+".unity");
 			}
 
 			if(replique["propo"] == "true")
@@ -70,7 +72,7 @@ public class CreateScenes
 				GameObject.Find("Replique").GetComponent<Text>().text = replique["textReplique"];
 				//assigner la reponse au script dans camera
 				Camera.main.GetComponent<ValideReplique>().bonneReponse = replique["reponse"];
-				Camera.main.GetComponent<ValideReplique>().isPropo = false;
+				Camera.main.GetComponent<ValideReplique>().isPropo = true;
 				//assigner la photo
 				Sprite photo = (Sprite) AssetDatabase.LoadAssetAtPath(pathAssetRef+"/Photos/"+replique["photo"]+".jpg", typeof(Sprite));
 				GameObject.Find("PhotoIndice").GetComponent<Image>().sprite = photo;
@@ -83,9 +85,18 @@ public class CreateScenes
 				GameObject.Find("Propo3").transform.FindChild("Text").GetComponent<Text>().text = replique["proposition3"];
 				GameObject.Find("Propo4").transform.FindChild("Text").GetComponent<Text>().text = replique["proposition4"];
 
-				//save scene
-				EditorApplication.SaveScene(pathAssetRef+"/"+name+".unity");
 			}
+			if(repliques.IndexOf(replique) == 0)
+			{
+				GameObject countPrefab = (GameObject) AssetDatabase.LoadAssetAtPath(pathAssetRef+"/Prefabs/CountObject.prefab", typeof(GameObject));
+				GameObject count = GameObject.Instantiate(countPrefab);
+				count.name = "CountObject";
+				Camera.main.gameObject.AddComponent<ResetCount>();
+				Text compteur = GameObject.Find("Compteur").GetComponent<Text>();
+				count.GetComponent<CountPoints>().compteur = compteur;
+
+			}
+			EditorApplication.SaveScene(pathAssetRef+"/"+name+".unity");
 		}
 	}
 }

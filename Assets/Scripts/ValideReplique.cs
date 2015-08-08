@@ -1,4 +1,20 @@
-﻿using UnityEngine;
+﻿/*
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ */ 
+ 
+
+
+
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using System.Text;
@@ -12,6 +28,7 @@ public class ValideReplique : MonoBehaviour {
 	public string bonneReponse;
 	private string reponse;
 	private GameObject panelAnswer;
+	private GameObject panelLoading;
 	private GameObject reponseText;
 	private GameObject imageSon;
 	private GameObject votreReponse;
@@ -38,11 +55,13 @@ public class ValideReplique : MonoBehaviour {
 		countScript = GameObject.Find("CountObject").GetComponent<CountPoints>();
 		audioSource = GameObject.Find("Audio Source");
 		panelAnswer = GameObject.Find("PanelReponse");
+		panelLoading = GameObject.Find("PanelLoading");
 		reponseText = GameObject.Find("Reponse");
 		imageSon = GameObject.Find("ImageSon");
 		votreReponse = GameObject.Find("VotreReponse");
 		buttonSuivant = GameObject.Find("Suivante");
 		panelAnswer.SetActive(false);
+		panelLoading.SetActive(false);
 	}
 
 	public void ValidateRep () 

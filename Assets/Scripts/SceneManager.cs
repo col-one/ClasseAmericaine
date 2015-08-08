@@ -43,6 +43,12 @@ public class SceneManager : MonoBehaviour {
 	{
 		LoadLevel(levelNames[indexNum]);
 	}
+
+	public void LoadLevelByName(string sceneName)
+	{
+		LoadLevel(sceneName);
+		gameLevelNum =  System.Array.IndexOf(levelNames, sceneName)+1;
+	}
 	
 	public void ResetGame()
 	{
