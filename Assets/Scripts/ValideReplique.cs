@@ -39,6 +39,9 @@ public class ValideReplique : MonoBehaviour {
 	private Color colorToPut;
 	private GameObject eventSystemText;
 	private GameObject buttonSuivant;
+	private GameObject check;
+	private GameObject uncheck;
+	private bool asGood;
 
 	public void Update()
 	{
@@ -56,10 +59,14 @@ public class ValideReplique : MonoBehaviour {
 		audioSource = GameObject.Find("Audio Source");
 		panelAnswer = GameObject.Find("PanelReponse");
 		panelLoading = GameObject.Find("PanelLoading");
-		reponseText = GameObject.Find("Reponse");
+		//reponseText = GameObject.Find("Reponse");
 		imageSon = GameObject.Find("ImageSon");
 		votreReponse = GameObject.Find("VotreReponse");
 		buttonSuivant = GameObject.Find("Suivante");
+		check = GameObject.Find("Check");
+		uncheck = GameObject.Find ("Uncheck");
+		check.SetActive(false);
+		uncheck.SetActive(false);
 		panelAnswer.SetActive(false);
 		panelLoading.SetActive(false);
 	}
@@ -83,7 +90,7 @@ public class ValideReplique : MonoBehaviour {
 			imageSon.SetActive(true);
 			audioSource.GetComponent<AudioSource>().PlayDelayed(2);
 			repToDisplay = bonneReponse;
-			colorToPut = Color.green;
+			asGood = true;
 			if(isPropo)
 			{
 				pointToAdd = 2;
@@ -102,7 +109,7 @@ public class ValideReplique : MonoBehaviour {
 			imageSon.SetActive(true);
 			audioSource.GetComponent<AudioSource>().PlayDelayed(2);
 			repToDisplay = bonneReponse;
-			colorToPut = Color.red;
+			asGood = false;
 			pointToAdd = -1;
 			isAnswer = true;
 
@@ -125,9 +132,11 @@ public class ValideReplique : MonoBehaviour {
 		if(!isPlay && isAnswer)
 		{
 			imageSon.SetActive(false);
-			reponseText.GetComponent<Text>().text = repToDiplay;
+			//reponseText.GetComponent<Text>().text = repToDiplay;
 			countScript.count += pointToAdd;
-			votreReponse.GetComponent<Text>().color = colorToPut;
+			//votreReponse.GetComponent<Text>().color = colorToPut;
+			check.SetActive(asGood);
+			uncheck.SetActive(!asGood);
 			buttonSuivant.GetComponent<Button>().interactable = true;
 			isAnswer = false;
 		}

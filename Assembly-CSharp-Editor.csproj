@@ -47,7 +47,6 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\AutoProto\Editor\CreateScenes.cs" />
-     <None Include="Assets\repliquesData.xml" />
      <None Include="Assets\Resources\repliquesData.xml" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Volumes/DATA/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

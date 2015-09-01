@@ -54,7 +54,7 @@ public class CreateScenes
 				Camera.main.GetComponent<ValideReplique>().bonneReponse = replique["reponse"];
 				Camera.main.GetComponent<ValideReplique>().isPropo = false;
 				//assigner la photo
-				Sprite photo = (Sprite) AssetDatabase.LoadAssetAtPath(pathAssetRef+"/Photos/"+replique["photo"]+".jpg", typeof(Sprite));
+				Sprite photo = (Sprite) AssetDatabase.LoadAssetAtPath(pathAssetRef+"/Photos/"+replique["photo"]+".png", typeof(Sprite));
 				GameObject.Find("PhotoIndice").GetComponent<Image>().sprite = photo;
 				//assigner le son
 				AudioClip son = (AudioClip) AssetDatabase.LoadAssetAtPath(pathAssetRef+"/Sons/"+replique["son"]+".mp3", typeof(AudioClip));
@@ -74,7 +74,7 @@ public class CreateScenes
 				Camera.main.GetComponent<ValideReplique>().bonneReponse = replique["reponse"];
 				Camera.main.GetComponent<ValideReplique>().isPropo = true;
 				//assigner la photo
-				Sprite photo = (Sprite) AssetDatabase.LoadAssetAtPath(pathAssetRef+"/Photos/"+replique["photo"]+".jpg", typeof(Sprite));
+				Sprite photo = (Sprite) AssetDatabase.LoadAssetAtPath(pathAssetRef+"/Photos/"+replique["photo"]+".png", typeof(Sprite));
 				GameObject.Find("PhotoIndice").GetComponent<Image>().sprite = photo;
 				//assigner le son
 				AudioClip son = (AudioClip) AssetDatabase.LoadAssetAtPath(pathAssetRef+"/Sons/"+replique["son"]+".mp3", typeof(AudioClip));

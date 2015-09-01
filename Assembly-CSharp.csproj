@@ -54,7 +54,6 @@
      <Compile Include="Assets\Scripts\ResetCount.cs" />
      <Compile Include="Assets\Scripts\SceneManager.cs" />
      <Compile Include="Assets\Scripts\ValideReplique.cs" />
-     <None Include="Assets\repliquesData.xml" />
      <None Include="Assets\Resources\repliquesData.xml" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Volumes/DATA/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
